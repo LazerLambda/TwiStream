@@ -18,6 +18,7 @@ class Tweet_DB:
                 'id' :          tweet['id'],
                 'id_str' :      tweet['id_str'],
                 'source' :      tweet['source'],
+                'text'   :      tweet['text'],
                 'user'   : {
                     'id'     :          tweet['user']['id'],
                     'id_str' :          tweet['user']['id_str'],
