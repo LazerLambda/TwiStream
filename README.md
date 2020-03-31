@@ -8,9 +8,9 @@
 
  This file has to include the Tokens to access the API:
 
-    ```
+```
     TWITTER_ACCESS_TOKEN = <your access token>
     TWITTER_ACCESS_TOKEN_SECRETm = <your access token secret>
     TWITTER_CONSUMER_KEY = <your consumer key>
     TWITTER_CONSUMER_SECRET = <your consumer secret>
-    ```
+```
