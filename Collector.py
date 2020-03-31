@@ -1,3 +1,4 @@
+import hashtags
 import json
 import os
 import signal
@@ -11,14 +12,6 @@ from tweepy.streaming import StreamListener
 
 
 load_dotenv()
-
-
-HASHTAG_LIST = [
-    "covid_19", "coronavirus", "virus", "corona", "chineseviruscorona", "chinesevirus",
-    "Covid_19", "Coronavirus", "Virus", "Corona", "ChineseVirusCorona", "ChineseVirus",
-    "CoronaVirus", "Chinesevirus"
-    ]
-
 
 
 
@@ -62,4 +55,4 @@ if '__main__'==__name__:
     )
 
     stream = Stream(auth, listener)
-    stream.filter(track=HASHTAG_LIST)
+    stream.filter(track=hashtags.HASHTAG_LIST)
