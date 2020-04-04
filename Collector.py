@@ -13,7 +13,7 @@ from tweepy.streaming import StreamListener
 
 load_dotenv()
 
-
+run = True
 
 class Tweet_Listener(StreamListener):
 
@@ -35,7 +35,10 @@ if '__main__'==__name__:
 
     db = Tweet_DB()
 
+
     def signal_handler(sig, frame):
+        global run
+        run = False
         print('You pressed Ctrl+C!')
         db.close()
         print('Database connection closed')
@@ -53,6 +56,10 @@ if '__main__'==__name__:
         os.getenv('TWITTER_ACCESS_TOKEN'),
         os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
     )
-
-    stream = Stream(auth, listener)
-    stream.filter(track=hashtags.HASHTAG_LIST)
+    while run:
+        try:
+            stream = Stream(auth, listener)
+            stream.filter(track=hashtags.HASHTAG_LIST)
+        except Exception as e:
+            print(e)
+            print("An Error was thrown. Trying to reconnect...")
