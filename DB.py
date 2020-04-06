@@ -17,6 +17,7 @@ class Tweet_DB:
             data = {
                 'id' :          tweet['id'],
                 'id_str' :      tweet['id_str'],
+                'created_at':   tweet['created_at'],
                 'source' :      tweet['source'],
                 'text'   :      tweet['text'],
                 'user'   : {
