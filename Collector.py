@@ -3,6 +3,7 @@ import json
 import os
 import signal
 import sys
+import time
 
 from DB import Tweet_DB
 from dotenv import load_dotenv
@@ -56,10 +57,19 @@ if '__main__'==__name__:
         os.getenv('TWITTER_ACCESS_TOKEN'),
         os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
     )
+
+    exp_counter = 1
+
     while run:
+        if exp_counter > 300:
+            exp_counter = 1
+        else:
+            time.sleep(exp_counter)
+            exp_counter = exp_counter ** 2
         try:
             stream = Stream(auth, listener)
             stream.filter(track=hashtags.HASHTAG_LIST)
         except Exception as e:
+            exp_counter = 1
             print(e)
             print("An Error was thrown. Trying to reconnect...")
