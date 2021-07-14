@@ -10,7 +10,7 @@
 
 ```
     TWITTER_ACCESS_TOKEN = <your access token>
-    TWITTER_ACCESS_TOKEN_SECRETm = <your access token secret>
+    TWITTER_ACCESS_TOKEN_SECRET = <your access token secret>
     TWITTER_CONSUMER_KEY = <your consumer key>
     TWITTER_CONSUMER_SECRET = <your consumer secret>
 ```
